@@ -120,14 +120,14 @@ Change History
 	scottlu@eskimo.com
 	http://www.eskimo.com/~scottlu
 
-	- Added language feature. EzSetup can now create German and French in
+- Added language feature. EzSetup can now create German and French in
 	  addition to English localized installers.
-	- Fixed bug where EzSetup would fail if executed on a path with spaces.
+- Fixed bug where EzSetup would fail if executed on a path with spaces.
 
 1999/06/23 - v1.0
 	Scott Ludwig
 	scottlu@eskimo.com
 	http://www.eskimo.com/~scottlu
 
-	Created and released v1.0 under gnu public license.
-	Created and released v1.0 under gnu public license.
+- Created and released v1.0 under gnu public license.
+- Created and released v1.0 under gnu public license.
