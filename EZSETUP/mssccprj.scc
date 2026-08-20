@@ -1,0 +1,5 @@
+SCC = This is a Source Code Control file
+
+[ezsetup.dsp]
+SCC_Aux_Path = "\\gates\Repositories\Repository"
+SCC_Project_Name = "$/Products/EzSetup/sources/EzSetup", YSXCAAAA

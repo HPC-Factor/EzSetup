@@ -1,0 +1,212 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Swedish resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_SVE)
+#ifdef _WIN32
+LANGUAGE LANG_SWEDISH, SUBLANG_DEFAULT
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "041d04E4"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "Simple Setup\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "Simple Setup\0"
+            VALUE "OriginalFilename", "\0"
+            VALUE "ProductName", "Simple Setup\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+kiddWelcome DIALOG DISCARDABLE  0, 0, 332, 218
+STYLE DS_CONTROL | DS_CENTER | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "< &Föregående",IDC_BACK,148,199,57,13,WS_DISABLED
+    DEFPUSHBUTTON   "&Nästa >",IDOK,206,199,55,13
+    PUSHBUTTON      "&Avbryt",IDCANCEL,267,199,59,13
+    LTEXT           "Static",kidcEdit,8,43,314,142
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,6,192,320,1
+    CONTROL         "",IDC_HEADER_PANEL,"Static",SS_WHITERECT,0,0,331,35
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,0,35,331,1
+END
+
+kiddEula DIALOGEX 0, 0, 332, 218
+STYLE DS_CONTROL | DS_CENTER | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        kidcEdit,6,44,319,107,ES_MULTILINE | ES_READONLY | 
+                    WS_VSCROLL,WS_EX_STATICEDGE
+    CONTROL         "Jag &accepterar vilkoren i licensavtalet",
+                    IDC_ACCEPTANCE,"Button",BS_AUTORADIOBUTTON | WS_GROUP | 
+                    WS_TABSTOP,7,157,314,10
+    CONTROL         "Jag accepterar &inte vilkoren i licensavtalet",
+                    IDC_ACCEPTANCE_NOT,"Button",BS_AUTORADIOBUTTON,7,169,308,
+                    10
+    PUSHBUTTON      "< &Föregående",IDC_BACK,148,199,57,13
+    DEFPUSHBUTTON   "&Slutför",IDOK,206,199,55,13,WS_DISABLED
+    PUSHBUTTON      "&Avbryt",IDCANCEL,267,199,59,13
+    CONTROL         "",IDC_HEADER_PANEL,"Static",SS_WHITERECT,0,0,332,35
+    CONTROL         149,IDC_STATIC,"Static",SS_BITMAP,295,2,35,32
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,0,35,332,1
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,6,192,320,1
+END
+
+IDD_WIZARD DIALOGEX 0, 0, 332, 218
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CLIPSIBLINGS | 
+    WS_CLIPCHILDREN | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+CAPTION "Wizard"
+FONT 8, "MS Sans Serif"
+BEGIN
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    kiddEula, DIALOG
+    BEGIN
+        HORZGUIDE, 199
+        HORZGUIDE, 212
+    END
+
+    IDD_WIZARD, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 325
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 211
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON1               ICON    DISCARDABLE     "icon1.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    kidrStringWinCEServicesNotFound 
+                            "Windows CE Services kunde inte hittas på denna dator.  Installationen kan \ninte fortsätta och kommer nu att avbrytas."
+    kidrStringSetup         "Installera"
+    kidrStringCouldntCreateInstallDir 
+                            "Det gick inte att skapa en katalog för installationsfilerna. Installationen kan inte fortsätta och kommer nu att avbrytas."
+    kidrStringErrorWritingCEApp 
+                            "Ett fel inträffade när Pocket PC program skulle sparas på disken. Installationen kan inte fortsätta och kommer nu att avbrytas. "
+    kidrStringMissingSetupFiles 
+                            "Installationsfilerna saknar en del information. Installationen kan inte fortsätta och kommer nu att avbrytas."
+    kidrCannotWriteUninstallInformation 
+                            "Det gick inte att skriva information för avinstallation."
+    kidrWelcomeSubtitle     "%s kommer nu att installeras på din Pocket PC"
+    kidrWelcomeTitle        "Pocket PC installation"
+    kidrEulaTitle           "Licensavtal"
+    kidrEulaSubtitle        "Vänligen läs det medföljande licensavtalet noggrant."
+END
+
+#endif    // Swedish resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

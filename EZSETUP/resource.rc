@@ -1,0 +1,100 @@
+// EzSetup - an CE app install maker
+// Copyright (C) 1998-2001 Scott Ludwig
+// scottlu@eskimo.com
+// http://www.eskimo.com/~scottlu
+//
+// This program is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License
+// as published by the Free Software Foundation; either version 2
+// of the License, or (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program; if not, write to the Free Software
+// Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+// or visit http://www.gnu.org/copyleft/gpl.html.
+
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// 99
+//
+
+kidrUninstall		99		DISCARDABLE     "Uninstall.exe"
+kidrSetupEnglish	99		DISCARDABLE     "setup_english.exe"
+kidrSetupFrench		99		DISCARDABLE		"setup_french.exe"
+kidrSetupGerman		99		DISCARDABLE		"setup_german.exe"
+kidrSetupSpanish		99		DISCARDABLE		"setup_spanish.exe"
+kidrSetupItalian		99		DISCARDABLE		"setup_italian.exe"
+kidrSetupSwedish		99		DISCARDABLE		"setup_swedish.exe"
+kidrSetupPortuguese		99		DISCARDABLE		"setup_portuguese.exe"
+kidrCExe			99		DISCARDABLE     "cexe.exe"
+
+IDI_MAINICON               ICON    DISCARDABLE     "ezsetup.ico"
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
