@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Developer Studio generated include file.
-// Used by res_english.rc
+// Used by res_czech.rc
 //
 #define kiddWelcome                     1
 #define kidrIniFile                     1
@@ -25,6 +25,7 @@
 #define kidtCEAPPMGRFILENAMES           101
 #define kidtTEXTFILES                   102
 #define kidtMISCSTRINGS                 103
+#define kidtDEVICETYPESTRINGS           104
 #define IDI_ICON1                       143
 #define IDR_DEFAULT1                    145
 #define IDR_DEFAULT2                    146

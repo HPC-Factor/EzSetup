@@ -23,7 +23,7 @@ CFG=setup - Win32 Debug
 !MESSAGE "setup - Win32 French Release" (based on "Win32 (x86) Application")
 !MESSAGE "setup - Win32 Spanish Release" (based on "Win32 (x86) Application")
 !MESSAGE "setup - Win32 Italian Release" (based on "Win32 (x86) Application")
-!MESSAGE "setup - Win32 Russian Release" (based on "Win32 (x86) Application")
+!MESSAGE "setup - Win32 Czech Release" (based on "Win32 (x86) Application")
 !MESSAGE "setup - Win32 Swedish Release" (based on "Win32 (x86) Application")
 !MESSAGE "setup - Win32 Portuguese Release" (based on "Win32 (x86) Application")
 !MESSAGE 
@@ -32,6 +32,7 @@ CFG=setup - Win32 Debug
 # PROP AllowPerConfigDependencies 0
 # PROP Scc_ProjName ""$/Products/EzSetup/sources/Setup", MSXCAAAA"
 # PROP Scc_LocalPath "Desktop"
+# PROP WCE_FormatVersion ""
 CPP=cl.exe
 MTL=midl.exe
 RSC=rc.exe
@@ -50,7 +51,7 @@ RSC=rc.exe
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /YX /FD /c
-# ADD CPP /nologo /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /YX /FD /c
+# ADD CPP /nologo /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /FR /YX /FD /c
 # ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
 # ADD MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
 # ADD BASE RSC /l 0x409 /d "NDEBUG"
@@ -206,18 +207,18 @@ LINK32=link.exe
 # ADD LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib libc.lib /nologo /entry:"main" /subsystem:windows /machine:I386 /nodefaultlib /out:"setup___Win32_Italian_Release/setup_italian.exe"
 # SUBTRACT LINK32 /pdb:none
 
-!ELSEIF  "$(CFG)" == "setup - Win32 Russian Release"
+!ELSEIF  "$(CFG)" == "setup - Win32 Czech Release"
 
 # PROP BASE Use_MFC 0
 # PROP BASE Use_Debug_Libraries 0
-# PROP BASE Output_Dir "setup___Win32_Russian_Release"
-# PROP BASE Intermediate_Dir "setup___Win32_Russian_Release"
+# PROP BASE Output_Dir "setup___Win32_Czech_Release"
+# PROP BASE Intermediate_Dir "setup___Win32_Czech_Release"
 # PROP BASE Ignore_Export_Lib 0
 # PROP BASE Target_Dir ""
 # PROP Use_MFC 0
 # PROP Use_Debug_Libraries 0
-# PROP Output_Dir "setup___Win32_Russian_Release"
-# PROP Intermediate_Dir "setup___Win32_Russian_Release"
+# PROP Output_Dir "setup___Win32_Czech_Release"
+# PROP Intermediate_Dir "setup___Win32_Czech_Release"
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /YX /FD /c
@@ -232,7 +233,7 @@ BSC32=bscmake.exe
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib libc.lib /nologo /entry:"main" /subsystem:windows /machine:I386 /nodefaultlib /out:"Release/setup_english.exe"
 # SUBTRACT BASE LINK32 /pdb:none
-# ADD LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib libc.lib /nologo /entry:"main" /subsystem:windows /machine:I386 /nodefaultlib /out:"setup___Win32_Russian_Release/setup_russian.exe"
+# ADD LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib libc.lib /nologo /entry:"main" /subsystem:windows /machine:I386 /nodefaultlib /out:"setup___Win32_Czech_Release/setup_czech.exe"
 # SUBTRACT LINK32 /pdb:none
 
 !ELSEIF  "$(CFG)" == "setup - Win32 Swedish Release"
@@ -250,7 +251,7 @@ LINK32=link.exe
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /YX /FD /c
-# ADD CPP /nologo /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /YX /FD /c
+# ADD CPP /nologo /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /FR /YX /FD /c
 # ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
 # ADD MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
 # ADD BASE RSC /l 0x409 /d "NDEBUG"
@@ -303,7 +304,7 @@ LINK32=link.exe
 # Name "setup - Win32 French Release"
 # Name "setup - Win32 Spanish Release"
 # Name "setup - Win32 Italian Release"
-# Name "setup - Win32 Russian Release"
+# Name "setup - Win32 Czech Release"
 # Name "setup - Win32 Swedish Release"
 # Name "setup - Win32 Portuguese Release"
 # Begin Source File
@@ -321,6 +322,47 @@ SOURCE=.\install_splash.bmp
 # Begin Source File
 
 SOURCE=.\main.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res_czech.rc
+
+!IF  "$(CFG)" == "setup - Win32 Release"
+
+# PROP Exclude_From_Build 1
+
+!ELSEIF  "$(CFG)" == "setup - Win32 Debug"
+
+# PROP Exclude_From_Build 1
+
+!ELSEIF  "$(CFG)" == "setup - Win32 German Release"
+
+# PROP Exclude_From_Build 1
+
+!ELSEIF  "$(CFG)" == "setup - Win32 French Release"
+
+# PROP Exclude_From_Build 1
+
+!ELSEIF  "$(CFG)" == "setup - Win32 Spanish Release"
+
+# PROP Exclude_From_Build 1
+
+!ELSEIF  "$(CFG)" == "setup - Win32 Italian Release"
+
+# PROP Exclude_From_Build 1
+
+!ELSEIF  "$(CFG)" == "setup - Win32 Czech Release"
+
+!ELSEIF  "$(CFG)" == "setup - Win32 Swedish Release"
+
+# PROP Exclude_From_Build 1
+
+!ELSEIF  "$(CFG)" == "setup - Win32 Portuguese Release"
+
+# PROP Exclude_From_Build 1
+
+!ENDIF 
+
 # End Source File
 # Begin Source File
 
@@ -348,7 +390,7 @@ SOURCE=.\res_english.rc
 # PROP BASE Exclude_From_Build 1
 # PROP Exclude_From_Build 1
 
-!ELSEIF  "$(CFG)" == "setup - Win32 Russian Release"
+!ELSEIF  "$(CFG)" == "setup - Win32 Czech Release"
 
 # PROP BASE Exclude_From_Build 1
 # PROP Exclude_From_Build 1
@@ -397,7 +439,7 @@ SOURCE=.\res_french.rc
 # PROP BASE Exclude_From_Build 1
 # PROP Exclude_From_Build 1
 
-!ELSEIF  "$(CFG)" == "setup - Win32 Russian Release"
+!ELSEIF  "$(CFG)" == "setup - Win32 Czech Release"
 
 # PROP BASE Exclude_From_Build 1
 # PROP Exclude_From_Build 1
@@ -446,7 +488,7 @@ SOURCE=.\res_german.rc
 # PROP BASE Exclude_From_Build 1
 # PROP Exclude_From_Build 1
 
-!ELSEIF  "$(CFG)" == "setup - Win32 Russian Release"
+!ELSEIF  "$(CFG)" == "setup - Win32 Czech Release"
 
 # PROP BASE Exclude_From_Build 1
 # PROP Exclude_From_Build 1
@@ -495,7 +537,7 @@ SOURCE=.\res_italian.rc
 
 # PROP BASE Exclude_From_Build 1
 
-!ELSEIF  "$(CFG)" == "setup - Win32 Russian Release"
+!ELSEIF  "$(CFG)" == "setup - Win32 Czech Release"
 
 # PROP BASE Exclude_From_Build 1
 # PROP Exclude_From_Build 1
@@ -545,7 +587,7 @@ SOURCE=.\res_portuguese.rc
 # PROP BASE Exclude_From_Build 1
 # PROP Exclude_From_Build 1
 
-!ELSEIF  "$(CFG)" == "setup - Win32 Russian Release"
+!ELSEIF  "$(CFG)" == "setup - Win32 Czech Release"
 
 # PROP BASE Exclude_From_Build 1
 # PROP Exclude_From_Build 1
@@ -558,55 +600,6 @@ SOURCE=.\res_portuguese.rc
 !ELSEIF  "$(CFG)" == "setup - Win32 Portuguese Release"
 
 # PROP BASE Exclude_From_Build 1
-
-!ENDIF 
-
-# End Source File
-# Begin Source File
-
-SOURCE=.\res_russian.rc
-
-!IF  "$(CFG)" == "setup - Win32 Release"
-
-# PROP Exclude_From_Build 1
-
-!ELSEIF  "$(CFG)" == "setup - Win32 Debug"
-
-# PROP Exclude_From_Build 1
-
-!ELSEIF  "$(CFG)" == "setup - Win32 German Release"
-
-# PROP BASE Exclude_From_Build 1
-# PROP Exclude_From_Build 1
-
-!ELSEIF  "$(CFG)" == "setup - Win32 French Release"
-
-# PROP BASE Exclude_From_Build 1
-# PROP Exclude_From_Build 1
-
-!ELSEIF  "$(CFG)" == "setup - Win32 Spanish Release"
-
-# PROP BASE Exclude_From_Build 1
-# PROP Exclude_From_Build 1
-
-!ELSEIF  "$(CFG)" == "setup - Win32 Italian Release"
-
-# PROP BASE Exclude_From_Build 1
-# PROP Exclude_From_Build 1
-
-!ELSEIF  "$(CFG)" == "setup - Win32 Russian Release"
-
-# PROP BASE Exclude_From_Build 1
-
-!ELSEIF  "$(CFG)" == "setup - Win32 Swedish Release"
-
-# PROP BASE Exclude_From_Build 1
-# PROP Exclude_From_Build 1
-
-!ELSEIF  "$(CFG)" == "setup - Win32 Portuguese Release"
-
-# PROP BASE Exclude_From_Build 1
-# PROP Exclude_From_Build 1
 
 !ENDIF 
 
@@ -642,7 +635,7 @@ SOURCE=.\res_spanish.rc
 # PROP BASE Exclude_From_Build 1
 # PROP Exclude_From_Build 1
 
-!ELSEIF  "$(CFG)" == "setup - Win32 Russian Release"
+!ELSEIF  "$(CFG)" == "setup - Win32 Czech Release"
 
 # PROP BASE Exclude_From_Build 1
 # PROP Exclude_From_Build 1
@@ -692,7 +685,7 @@ SOURCE=.\res_swedish.rc
 # PROP BASE Exclude_From_Build 1
 # PROP Exclude_From_Build 1
 
-!ELSEIF  "$(CFG)" == "setup - Win32 Russian Release"
+!ELSEIF  "$(CFG)" == "setup - Win32 Czech Release"
 
 # PROP BASE Exclude_From_Build 1
 # PROP Exclude_From_Build 1

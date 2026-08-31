@@ -84,6 +84,7 @@ void GetTempFn(char *pszWorkingDir, char *pszFile)
 #define kidtCEAPPMGRFILENAMES 101
 #define kidtTEXTFILES 102
 #define kidtMISCSTRINGS 103
+#define kidtDEVICETYPESTRINGS 104
 
 byte *MapFile(char *psz, int *pcb, HANDLE *phMap)
 {
@@ -180,7 +181,7 @@ WriteError:
 	return true;
 }
 
-bool WriteNewCESetup(UINT idr, char *pszDir, char *pszComponent, char *pszFnIni, char *pszFnReadme, char *pszFnEula, int cCabs, char aszFnCabs[20][MAX_PATH], char *pszFnExeT)
+bool WriteNewCESetup(UINT idr, char *pszDir, char *pszDeviceType, char *pszComponent, char *pszFnIni, char *pszFnReadme, char *pszFnEula, int cCabs, char aszFnCabs[20][MAX_PATH], char *pszFnExeT)
 {
 	// Write uninstallation to a temportary file
 
@@ -283,9 +284,16 @@ ExeCleanup:
 	}
 	DeleteFile(szFn);
 
-	// Write directory name to install (which is component name)
+	// Write directory name to install (which is the 'component' name in the CeAppMgr inf file)
 
 	if (!WriteStringToResource(pszComponent, h, kidtMISCSTRINGS, kidrDirectory)) {
+		EndUpdateResource(h, TRUE);
+		goto ExeCleanup;
+	}
+
+	// Write Device Type to the resources table on the installer executable
+
+	if (!WriteStringToResource(pszDeviceType, h, kidtDEVICETYPESTRINGS, kidrDirectory)) {
 		EndUpdateResource(h, TRUE);
 		goto ExeCleanup;
 	}
@@ -348,52 +356,62 @@ Error:
 void Usage()
 {
 	printf("\n");
-	printf("EzSetup v2.1, January 2003, Freeware\n");
+	printf("EzSetup v2.2.20260831\n");
+	printf("www.hpcfactor.com\n");
 	printf("\n");
 	printf("Usage:\n");
-	printf("ezsetup <-l language> <-i inifilename> <-r readme.txt> <-e eula.txt> <-o outputexe>\n");
+	printf("ezsetup <-d device> <-l language> <-i inifilename> <-r readme.txt> <-e eula.txt> <-o outputexe>\n");
+	printf("\n");                                                                           // 80 left of here
+	printf(" Creates a compressed, self-contained and self-extracting Win32 GUI install\n");
+	printf(" application that when run on your desktop PC will install an application to a\n");
+	printf(" Windows CE 2.0+ device. To operate, ezsetup needs your .ini and .cab files,\n");
+	printf(" a readme.txt file and a eula.txt file. (For more info on .ini and .cab files,\n");
+	printf(" see your Microsoft CE SDK documentation).\n");
 	printf("\n");
-	printf("Creates a compressed, self-contained and self-extracting Win32 gui install\n");
-	printf("application that when run on your desktop PC will install a Pocket PC application\n");
-	printf("to a Pocket PC device. To operate, ezsetup simply needs your .ini\n");
-	printf("and .cab files, a readme.txt file and a eula.txt file. (For more info on\n");
-	printf(".ini and .cab files, see your Pocket PC SDK documentation).\n");
+	printf(" <-d device>\n");
+	printf("    Specifies the device type label in the install program. Valid arguments:\n");
+	printf("     'windowsce'    'handheldpc'   'pocketpc'\n");
+	printf("     'palmsizepc'   'smartphone'   'windowsmobile'           DEFAULT: windowsce\n");
 	printf("\n");
-	printf("<-l language>\n");
-	printf("    This is specifies the language text of the install program. Valid argument\n");
-	printf("    are 'english', 'german', 'french', 'italian', 'swedish', 'portuguese' and 'spanish'.\n");
+	printf(" <-l language>\n");
+	printf("    This is specifies the language text of the install program. Valid arguments:");
+	printf("     'czech'     'english'     'french'   'german'\n");
+	printf("     'italian'   'portuguese'  'spanish'  'swedish'\n");
 	printf("\n");
-	printf("<-i inifilename>\n");
+	printf(" <-i inifilename>\n");
 	printf("    This parameter specifies the .ini file used as part of CE App Mgr setup.\n");
 	printf("    The .cab files specified in this .ini file are expected to be in the same\n");
 	printf("    directory as the .ini file, and are read in by ezsetup.\n");
 	printf("\n");
-	printf("<-r readme.txt>\n");
+	printf(" <-r readme.txt>\n");
 	printf("    Specify a readme.txt file that will appear as the first dialog in the\n");
-	printf("    gui setup program.\n");
+	printf("    GUI setup program.\n");
 	printf("\n");
-	printf("<-e eula.txt>\n");
+	printf(" <-e eula.txt>\n");
 	printf("    Specify an end-user license agreement that will appear as the second\n");
-	printf("    dialog in the gui setup program.\n");
+	printf("    dialog in the GUI setup program.\n");
 	printf("\n");
-	printf("<-o outputexe>\n");
+	printf(" <-o outputexe>\n");
 	printf("    This parameter specifies the output name of the resulting compressed\n");
 	printf("    auto-extracting setup executable.\n");
 	printf("\n");
 	printf("Example:\n");
-	printf("ezsetup -l english -i chess.ini -r readme.txt -e eula.txt -o ChessSetup.exe\n");
+	printf("  ezsetup.exe -d handheldpc -l english -i chess.ini -r readme.txt\n");
+	printf("              -e eula.txt -o ChessSetup.exe\n");
 	printf("\n");
-	printf("Note: EzSetup runs on WindowsNT/2000/XP or later versions only. The executables\n");
-    printf("it produces will run on any Win32 platform.\n");
+	printf(" Note: EzSetup will only run on Windows NT 4.0 or later. The executables\n");
+    printf("       it produces will run on any Win32 platform.\n");
 	printf("\n");
-	printf("Spb Software House, http://www.softspb.com, info@softspb.com\n");
-	printf("Tinyware, Inc, http://www.eskimo.com/~scottlu, scottlu@eskimo.com\n");
+	printf(" HPC:Factor          https://www.hpcfactor.com\n");
+	printf(" Spb Software House  http://www.softspb.com           info@softspb.com\n");
+	printf(" Tinyware, Inc       http://www.eskimo.com/~scottlu   scottlu@eskimo.com\n");
 }
 
 int main(int argc, char *argv[])
 {
 	// Read in command line arguments
 
+	char szDevice[256];
 	char szLanguage[256];
 	char szFnEzSetup[MAX_PATH];
 	char szFnIni[MAX_PATH];
@@ -402,9 +420,23 @@ int main(int argc, char *argv[])
 	char szFnExe[MAX_PATH];
 
 	char *psz = GetCommandLine();
-	if (sscanf(GetCommandLine(), "%s -l %s -i %s -r %s -e %s -o %s", szFnEzSetup, szLanguage, szFnIni, szFnReadme, szFnEula, szFnExe) != 6) {
+	if (sscanf(GetCommandLine(), "%s -d %s -l %s -i %s -r %s -e %s -o %s", szFnEzSetup, szDevice, szLanguage, szFnIni, szFnReadme, szFnEula, szFnExe) != 7) {
 		Usage();
 		return -1;
+	}
+
+	// Parse for appropriate device type
+	char szDeviceType[] = "Windows CE Device";			// Default to Windows CE Device
+	if (stricmp(szDevice, "handheldpc") == 0) {
+		strcpy(szDeviceType, "Handheld PC");
+	} else if (stricmp(szDevice, "pocketpc") == 0) {
+		strcpy(szDeviceType, "Pocket PC");
+	} else if (stricmp(szDevice, "palmsizepc") == 0) {
+		strcpy(szDeviceType, "Palm Size PC");
+	} else if (stricmp(szDevice, "smartphone") == 0) {
+		strcpy(szDeviceType, "SmartPhone");
+	} else if (stricmp(szDevice, "windowsmobile") == 0) {
+		strcpy(szDeviceType, "Windows Mobile");
 	}
 
 	// Parse for appropriate language
@@ -424,6 +456,8 @@ int main(int argc, char *argv[])
 		idrSetup = kidrSetupSwedish;
 	} else if (stricmp(szLanguage, "german") == 0) {
 		idrSetup = kidrSetupGerman;
+	} else if (stricmp(szLanguage, "czech") == 0) {
+		idrSetup = kidrSetupCzech;
 	}
 	if (idrSetup == (UINT)-1) {
 		printf("Valid language not specified.\n\n");
@@ -522,7 +556,7 @@ IniError:
 	_splitpath(szT, szDrive, szDir, szName, szExt);
 
 	char szFnExeT[MAX_PATH];
-	if (!WriteNewCESetup(idrSetup, szDir, pszComponent, szFnIni, szFnReadme, szFnEula, cCabs, aszFnCabs, szFnExeT))
+	if (!WriteNewCESetup(idrSetup, szDir, szDeviceType, pszComponent, szFnIni, szFnReadme, szFnEula, cCabs, aszFnCabs, szFnExeT))
 		return -1;
 
 	// Now compress this new app

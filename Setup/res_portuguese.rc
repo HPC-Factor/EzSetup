@@ -54,8 +54,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,0,0,1
- PRODUCTVERSION 1,0,0,1
+ FILEVERSION 2,2,0,1
+ PRODUCTVERSION 2,2,0,1
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -68,20 +68,25 @@ VS_VERSION_INFO VERSIONINFO
 BEGIN
     BLOCK "StringFileInfo"
     BEGIN
-        BLOCK "040904b0"
+        BLOCK "081604b0"
         BEGIN
+            VALUE "Comments", "\0"
             VALUE "CompanyName", "\0"
             VALUE "FileDescription", "Simple Setup\0"
-            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "FileVersion", "2, 2, 0, 1\0"
             VALUE "InternalName", "Simple Setup\0"
+            VALUE "LegalCopyright", "\0"
+            VALUE "LegalTrademarks", "\0"
             VALUE "OriginalFilename", "\0"
+            VALUE "PrivateBuild", "\0"
             VALUE "ProductName", "Simple Setup\0"
-            VALUE "ProductVersion", "1, 0, 0, 1\0"
+            VALUE "ProductVersion", "2, 2, 0, 1\0"
+            VALUE "SpecialBuild", "\0"
         END
     END
     BLOCK "VarFileInfo"
     BEGIN
-        VALUE "Translation", 0x409, 1200
+        VALUE "Translation", 0x816, 1200
     END
 END
 
@@ -108,7 +113,7 @@ END
 
 kiddEula DIALOGEX 0, 0, 332, 218
 STYLE DS_CONTROL | DS_CENTER | WS_CHILD
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        kidcEdit,6,44,319,107,ES_MULTILINE | ES_READONLY | 
                     WS_VSCROLL,WS_EX_STATICEDGE
@@ -131,7 +136,7 @@ STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CLIPSIBLINGS |
     WS_CLIPCHILDREN | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_CONTROLPARENT
 CAPTION "Wizard"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
 END
 
@@ -188,8 +193,8 @@ BEGIN
                             "Os arquivos de instalaá∆o n∆o foram encontrados. A instalaá∆o n∆o pode continuar e vai ser finalizada."
     kidrCannotWriteUninstallInformation 
                             "Imposs°vel escrever informaá∆o para desintalaá∆o."
-    kidrWelcomeSubtitle     "%s vai ser instalado no seu Pocket PC agora"
-    kidrWelcomeTitle        "Instalaá∆o no Pocket PC"
+    kidrWelcomeSubtitle     "%s ser„o instalados no seu PC prontos para transferir para o seu dispositivo mÛvel."
+    kidrWelcomeTitle        "Instalaá∆o no %s"
     kidrEulaTitle           "Licenáa de Uso"
     kidrEulaSubtitle        "Por favor leia cuidadosamente o contrato de licenáa a seguir."
 END

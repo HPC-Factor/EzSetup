@@ -25,16 +25,17 @@
 #define IDR_DEFAULT1                    101
 #define IDR_11                          102
 
-#define kidrUninstall 3000
-#define kidrCExe 3001
-#define kidrSetupEnglish 3002
-#define kidrSetupFrench 3003
-#define kidrSetupGerman 3004
-#define kidrSetupSpanish 3005
-#define kidrSetupItalian 3006
-#define kidrSetupSwedish 3007
-#define kidrSetupPortuguese 3008
-#define IDI_MAINICON 3009
+#define kidrUninstall					3000
+#define kidrCExe						3001
+#define kidrSetupEnglish				3002
+#define kidrSetupFrench					3003
+#define kidrSetupGerman					3004
+#define kidrSetupSpanish				3005
+#define kidrSetupItalian				3006
+#define kidrSetupSwedish				3007
+#define kidrSetupPortuguese				3008
+#define kidrSetupCzech					3010
+#define IDI_MAINICON					3009
 
 // Next default values for new objects
 // 

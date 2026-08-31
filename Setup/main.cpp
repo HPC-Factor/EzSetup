@@ -93,10 +93,10 @@ BOOL AddTwoHeaders(HWND hWnd, LPCTSTR strTitle, LPCTSTR strSubtitle)
 	logFont.lfWeight = FW_SEMIBOLD;
 	HFONT hFontHeader = ::CreateFontIndirect(&logFont);
 
-	ghTitle = CreateStatic(strTitle, 17,11,400,30, hWnd);
+	ghTitle = CreateStatic(strTitle, 17,11,464,30, hWnd);
 	::SendMessage(ghTitle, WM_SETFONT, (WPARAM)hFontHeader, TRUE);
 
-	ghSubTitle = CreateStatic(strSubtitle, 28,33,400,20, hWnd);
+	ghSubTitle = CreateStatic(strSubtitle, 17,33,464,20, hWnd);				// x=17, y=33, 464 wide
 	::SendMessage(ghSubTitle, WM_SETFONT, (WPARAM)hFontSubHeader, TRUE);
 
 	HWND hWhiteBanner = ::GetDlgItem(hWnd, IDC_HEADER_PANEL);
@@ -150,19 +150,25 @@ BOOL CALLBACK WelcomeDlgProc(HWND hwnd, UINT wm, WPARAM wp, LPARAM lp)
 		{
 		// Grab the readme.txt resource and stick it in the edit control
 
+		char szDeviceType[30];
+		szDeviceType[0] = 0;
+		GetStringFromResource(kidtDEVICETYPESTRINGS, kidrDirectory, szDeviceType, sizeof(szDeviceType));
+
 		char szApplicationName[80];
 		szApplicationName[0] = 0;
 		GetStringFromResource(kidtMISCSTRINGS, kidrDirectory, szApplicationName, sizeof(szApplicationName));
 		::SetWindowText(hwnd, szApplicationName);
 
 		SetDlgItemText(hwnd, kidcEdit, GetTextFileResource(kidrReadme));
+		char title[1024];
 		char subTitle[1024];
 
-		ResourceString strWelcomeSubtitle(kidrWelcomeSubtitle);
-		ResourceString strWelcomeTitle(kidrWelcomeTitle);
-		sprintf(subTitle, strWelcomeSubtitle.m_sz, szApplicationName);
+		ResourceString strWelcomeTitle(kidrWelcomeTitle);								// Load 'Pocket PC installation'
+		sprintf(title, strWelcomeTitle.m_sz, szDeviceType);									// Replace Device Type into %s in kidrWelcomeTitle
+		ResourceString strWelcomeSubtitle(kidrWelcomeSubtitle);							// Load '%s will be installed on your Pocket PC now'
+		sprintf(subTitle, strWelcomeSubtitle.m_sz, szApplicationName);						// Replace Application Name into %s in strWelcomeSubtitle
 
-		AddTwoHeaders(hwnd, strWelcomeTitle.m_sz, subTitle);
+		AddTwoHeaders(hwnd, title, subTitle);
 
 		return FALSE;
 		}

@@ -54,8 +54,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,0,0,1
- PRODUCTVERSION 1,0,0,1
+ FILEVERSION 2,2,0,1
+ PRODUCTVERSION 2,2,0,1
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -68,20 +68,25 @@ VS_VERSION_INFO VERSIONINFO
 BEGIN
     BLOCK "StringFileInfo"
     BEGIN
-        BLOCK "040904b0"
+        BLOCK "080904b0"
         BEGIN
+            VALUE "Comments", "\0"
             VALUE "CompanyName", "\0"
             VALUE "FileDescription", "Simple Setup\0"
-            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "FileVersion", "2, 2, 0, 1\0"
             VALUE "InternalName", "Simple Setup\0"
+            VALUE "LegalCopyright", "\0"
+            VALUE "LegalTrademarks", "\0"
             VALUE "OriginalFilename", "\0"
+            VALUE "PrivateBuild", "\0"
             VALUE "ProductName", "Simple Setup\0"
-            VALUE "ProductVersion", "1, 0, 0, 1\0"
+            VALUE "ProductVersion", "2, 2, 0, 1\0"
+            VALUE "SpecialBuild", "\0"
         END
     END
     BLOCK "VarFileInfo"
     BEGIN
-        VALUE "Translation", 0x409, 1200
+        VALUE "Translation", 0x809, 1200
     END
 END
 
@@ -108,7 +113,7 @@ END
 
 kiddEula DIALOGEX 0, 0, 332, 218
 STYLE DS_CONTROL | DS_CENTER | WS_CHILD
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        kidcEdit,6,44,319,107,ES_MULTILINE | ES_READONLY | 
                     WS_VSCROLL,WS_EX_STATICEDGE
@@ -132,7 +137,7 @@ STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CLIPSIBLINGS |
     WS_CLIPCHILDREN | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_CONTROLPARENT
 CAPTION "Wizard"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
 END
 
@@ -179,18 +184,18 @@ IDI_ICON1               ICON    DISCARDABLE     "icon1.ico"
 STRINGTABLE DISCARDABLE 
 BEGIN
     kidrStringWinCEServicesNotFound 
-                            "ActiveSync not found on this computer. Setup cannot continue and will now exit."
+                            "ActiveSync nebyl v tomto pocítaci nalezen. Nastavení nemuže pokracovat a nyní vyjde."
     kidrStringSetup         "Setup"
     kidrStringCouldntCreateInstallDir 
                             "Could not create install directory. Setup cannot continue and will exit."
     kidrStringErrorWritingCEApp 
-                            "An error occured writing your Pocket PC application to disk. Setup cannot continue and will exit."
+                            "An error occured writing your %s application to disk. Setup cannot continue and will exit."
     kidrStringMissingSetupFiles 
                             "The setup files are missing information. Setup cannot continue and will exit."
     kidrCannotWriteUninstallInformation 
                             "Could not write uninstall information."
-    kidrWelcomeSubtitle     "%s will be installed on your Pocket PC now"
-    kidrWelcomeTitle        "Pocket PC installation"
+    kidrWelcomeSubtitle     "%s will be installed on your PC ready to transfer to your mobile device."
+    kidrWelcomeTitle        "%s installation"
     kidrEulaTitle           "License Agreement"
     kidrEulaSubtitle        "Please read the following license agreement carefully."
 END
