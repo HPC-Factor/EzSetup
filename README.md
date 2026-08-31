@@ -1,5 +1,5 @@
 # EzSetup
-EzSetup originally by Scott Ludwig, with revisions by SPB Software House
+EzSetup originally by Scott Ludwig, with revisions by SPB Software House and C:Amie, HPC:Factor
 
 
 EZSetup - A tool for creating Windows CE install applications
@@ -105,6 +105,16 @@ These projects are VC++ 6.0 projects.
 
 Change History
 --------------
+
+ 2026/08/31 - v2.2
+    C:Amie, HPC:Factor
+	- Added -d command line argument to allow the selection of device type for labelling on the UI (Handheld PC, Windows CE, Pocket PC, SmartPhone, Palm Sized PC or Windows Mobile). This defaults to "Windows CE" if not set
+	- Fixed alignment of form elements on the initial screen
+	- Increased width of elements in the header of the initial screen to reduce chance of line wrapping
+	- Re-wrote command line instructions screen
+	- Added HPC:Factor as a release contributor
+	- Added Czech translation
+	- Removed Russian translation remnants from source
 
  2003/01/24 - v2.1
     Spb Software
